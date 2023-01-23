@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tradelink</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link href="https://uploads-ssl.webflow.com/60b9ce169dd5df7084f9fef7/613e589bd25b70ef0db186ab_60b7a3130fd27d594abfb5fa_favicon%20neu.png" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+
+  <div class="bg-gray-100 w-full h-screen  relative flex  overflow-scroll">
+    <%= yield %>
+  </div>
+<%= render "javascript" %>
+
+</body>
+
+</html>
