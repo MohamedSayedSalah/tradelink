@@ -9,9 +9,9 @@ export const Slots = ({slots, register, setValue, confirmed}) => {
         setSlotIndex(null)
     },[confirmed])
 
-    return <div className={'picker'}>
+    return <div className={'picker '}>
 
-        <div className={"flex p-2 mb-4 mt-4"}>
+        <div className={"flex p-2 mb-4 mt-4 ml-8"}>
             <BiTimeFive size={30}/>
             <span className={'maintext ml-2'}>Time </span>
         </div>

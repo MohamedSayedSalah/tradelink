@@ -87,8 +87,10 @@ export const Home = (props) => {
                 <img src={tradelinkImg} className={'inline'}/>
                 <div className="w-full flex flex-col justify-between">
                     <main className="max-w-full  flex relative overflow-y-hidden">
+                        <div className={"grid grid-cols-12 gap-2"}>
+
                         <div
-                            className="h-full   m-4 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll">
+                            className="h-full col-span-3   m-4 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll">
                             <DatePicker setDate={setDate}/>
                             <Counter register={register}
                                      name={'slot[duration]'}
@@ -99,6 +101,7 @@ export const Home = (props) => {
 
 
                         <Slots slots={slots} register={register} setValue={setValue} confirmed={success}/>
+                        </div>
 
 
                     </main>
