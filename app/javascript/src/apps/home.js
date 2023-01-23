@@ -11,6 +11,8 @@ export const Home = (props) => {
     const [date, setDate] = useState(new Date())
     const [duration, setDuration] = useState(10)
     const [success, setSuccess] = useState(false)
+    const [error, setError] = useState({text: '', state: false})
+
 
 
     const {
@@ -29,6 +31,14 @@ export const Home = (props) => {
     }, [date, duration])
 
 
+    const handleError = (e)=>{
+        setError({state: true, text: e})
+        setTimeout(()=>{
+            setError({state: false, text: ''})
+        }, 5000)
+    }
+
+
     const availableSlots = () => {
         axios({
             method: 'get',
@@ -37,43 +47,36 @@ export const Home = (props) => {
         }).then((res) => {
             setSlots(res.data)
         }).catch((e) => {
-            alert(e)
+            handleError('something went wrong')
         })
     }
-
-
-
-
 
 
     const onSubmit = (data) => {
 
         axios.post('/slot', {...data}).then((res) => {
             setSuccess(true)
-
-            setTimeout(()=>{
+            setTimeout(() => {
                 setSuccess(false)
             }, 5000)
-
         }).catch((e) => {
-            alert(e)
+            setTimeout(() => { document.getElementById('root').scrollIntoView({ behavior: "smooth" }) }, 500)
+            handleError('you have to pick a slot first')
         })
     }
-    const subscribeMethod = (topic,msg)=>{
+    const subscribeMethod = (topic, msg) => {
         availableSlots()
     }
-        PubSub.subscribeOnce('slots',subscribeMethod);
+    PubSub.subscribeOnce('slots', subscribeMethod);
 
-    useEffect(()=>{
-            PubSub.unsubscribe('slots')
-    },[duration, date])
+    useEffect(() => {
+        PubSub.unsubscribe('slots')
+    }, [duration, date])
 
 
     return <div className={"main-container"}>
-        {success && <div className={"absolute right"}>
-            <Alert type='success' text={'your slot is booked successfully'}/>
-        </div>
-        }
+        {success && <Alert type='success' text={'your slot is booked successfully'}/>}
+        {error.state && <Alert type='danger' text={error.text}/>}
 
         <ForumContainer
             formRef={formRef}
