@@ -62,9 +62,10 @@ export const Home = (props) => {
     const subscribeMethod = (topic,msg)=>{
         availableSlots()
     }
-    useEffect(()=>{
-            // PubSub.unsubscribe('slots')
         PubSub.subscribeOnce('slots',subscribeMethod);
+
+    useEffect(()=>{
+            PubSub.unsubscribe('slots')
     },[duration, date])
 
 
