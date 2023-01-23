@@ -36,8 +36,17 @@ using the default duration and date
 - get "/available_slots" to check the slots availability  
 
 
+# binary search collision explanation 
 
+  <img src="https://i.postimg.cc/1t25nyPx/1.png" alt="1">
 
+  <img src="https://i.postimg.cc/Y0F2QTqv/2.png" alt="2">
+
+  <img src="https://i.postimg.cc/J4b40w2g/3.png" alt="3">
+
+  <img src="https://i.postimg.cc/G3Tp0TJb/4.png" alt="4">
+
+  <img src="https://i.postimg.cc/hPFtK4pT/5.png" alt="5">
 
 
 
