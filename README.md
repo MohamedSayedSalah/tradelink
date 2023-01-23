@@ -1,4 +1,4 @@
-#usage requirement
+# usage requirement
 - ruby version 3.1.0
 - Rails 6.1.4.4
 - postgres 12.9
@@ -27,7 +27,7 @@ using the default duration and date
 - a subscriber in the home component will be notified and it will trigger a new api call to check for the new available slots
 
 
-#basic components 
+# basic components 
 - js -> home.js,slots.js
 - rails -> available_slots.rb
 
