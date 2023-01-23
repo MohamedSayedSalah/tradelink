@@ -60,7 +60,6 @@ export const Home = (props) => {
         })
     }
     const subscribeMethod = (topic,msg)=>{
-        console.log(topic, msg, "!!!!")
         availableSlots()
     }
     useEffect(()=>{
@@ -100,7 +99,6 @@ export const Home = (props) => {
 
                     </main>
                 </div>
-
 
                 <SubmitButtons
                     handleSubmit={handleSubmit}
